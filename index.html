@@ -1,0 +1,94 @@
+ <!doctype html>
+ <html>
+
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <script src="index.js">
+    </script>
+
+</head>
+
+<body class="font-serif  text-white ">
+
+    <div id="search-box" class="text-center">
+        <form class="  w-96 p-4 ">
+            <input type="text" placeholder="Search movies" class="shadow-2xl   px-10 text-red-900 rounded-lg text-center W-20 h-8" id="search-box">
+            <button type="submit" class="bg-blue-800"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+
+
+    </div>
+
+    <div class="container mx-auto overflow-hidden mb-40   ">
+
+        <div id="main" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-6 gap-2   ">
+
+
+        </div>
+
+    </div>
+
+
+    <footer class="footer   ">
+        <div class="waves  ">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <!--            <div class="wave" id="wave4"></div>-->
+        </div>
+        <ul class="social-icon">
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a></li>
+        </ul>
+        <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+
+        </ul>
+        <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const movieBox = document.querySelector("#main");
+
+        const search = document.querySelector("#search-box");
+        search.addEventListener("keyup", (event) => {
+            console.log(event.target.value)
+            event.preventDefault();
+            if (event.target.value != "") {
+                getmovies(SEARCHAPI + event.target.value)
+                // searched movies 
+            } else {
+                getmovies(APIURL);
+                // popular movies
+            }
+        })
+    </script>
+    <!--
+ <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+-->
+
+
+</body></html>
